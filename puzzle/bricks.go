@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"time"
 )
 
 const ()
@@ -12,17 +11,21 @@ var r *rand.Rand
 
 func main() {
 	fmt.Println("starting")
-	r = rand.New(rand.NewSource(time.Now().UnixNano()))
+	r = rand.New(rand.NewSource(12))
 	var sum int
-	for i := 0; i < 30; i++ {
+	for x := 0; x < 30; x++ {
 		sum = -1
 		for sum < 0 {
 			values := getValues()
+			for i := 0; i < 3; i++ {
+				values[i] = values[i] + 1
+			}
+
 			indexes := getValues()
 			var line string
 			for x, v := range values {
 				sum = sum + calc(v, indexes[x])
-				line = line + fmt.Sprintf("%d-%d, ", v, indexes[x])
+				line = line + fmt.Sprintf("%d-%d, ", v, indexes[x]+1)
 			}
 			if sum >= 0 {
 				fmt.Printf("%d: %s\r\n", sum, line)
