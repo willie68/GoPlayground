@@ -8,4 +8,5 @@ require (
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/hashicorp/memberlist v0.3.0
+	github.com/spf13/pflag v1.0.5 // indirect
 )

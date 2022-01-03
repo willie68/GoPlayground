@@ -10,7 +10,10 @@
         "request": "launch",
         "mode": "debug",
         "program": "${workspaceFolder}/TPS_CC/main.go",
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "args": [
+            "-s", "./example/jet.tps"
+        ],
     },
     {
         "name": "Launch value sim",
