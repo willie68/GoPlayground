@@ -1,0 +1,27 @@
+- time: 2020-12-12T12:12:23Z
+  msg: User "Mueller, Walter" entered safe-deposit
+  open: true
+- time: 2020-12-12T12:15:46Z
+  msg: User "Mueller, Walter" leaved safe-deposit
+  open: false
+- time: 2020-12-12T14:12:17Z
+  msg: User "Armas, Ana de" entered safe-deposit
+  open: true
+- time: 2020-12-12T14:15:27Z
+  msg: User "Armas, Ana de" leaved safe-deposit
+  open: false
+- time: 2020-12-12T23:26:43Z
+  msg: access forbidden, reported user "Krieger, Melani", ID card copied 
+  open: false
+- time: 2020-12-13T03:17:56Z
+  msg: access forbidden, reported user "Schulze, Kerstin", ID card copied
+  open: false
+- time: 2020-12-13T04:12:03Z
+  msg: access forbidden, reported user "Mueller, Angelika", ID card copied
+  open: false
+- time: 2020-12-13T12:12:17Z
+  msg: User "Mueller, Walter" entered safe-deposit
+  open: true
+- time: 2020-12-13T12:15:36Z
+  msg: User "Mueller, Walter" leaved safe-deposit
+  open: false
