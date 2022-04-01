@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "bluge",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "cwd": "${workspaceFolder}",
+            "program": "./bluge/main.go"
+        },
+        {
             "name": "badgerhold",
             "type": "go",
             "request": "launch",
@@ -46,7 +54,7 @@
         "program": "./puzzle/log/main.go"
     },
     {
-    "name": "Launch TPS_CC",
+    "name": "TPS_CC",
         "type": "go",
         "request": "launch",
         "mode": "debug",
@@ -57,7 +65,7 @@
         ],
     },
     {
-        "name": "Launch value sim",
+        "name": "Bricks",
         "type": "go",
         "request": "launch",
         "mode": "auto",
@@ -65,7 +73,7 @@
         "cwd": "${workspaceFolder}"
     },
         {
-            "name": "Launch Package",
+            "name": "Groupcache",
             "type": "go",
             "request": "launch",
             "mode": "auto",
