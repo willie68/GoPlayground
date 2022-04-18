@@ -17,9 +17,10 @@ var locked bool
 var f *os.File
 
 type LogEntry struct {
-	Time time.Time `json:"time",yaml:"time"`
-	Msg  string    `json:"msg",yaml:"msg"`
-	Open bool      `json:"open",yaml:"open"`
+	Time     time.Time `json:"time",yaml:"time"`
+	Msg      string    `json:"msg",yaml:"msg"`
+	Open     bool      `json:"open",yaml:"open"`
+	Severity string    `json:"severity",yaml:"severity"`
 }
 
 func main() {
@@ -49,7 +50,11 @@ func main() {
 	for {
 		for _, l := range logs {
 			if l.Time.After(startTime) && l.Time.Before(actTime) {
-				info(l.Time, "event", l.Msg)
+				if l.Severity == "alarm" {
+					info(l.Time, "alarm", l.Msg)
+				} else {
+					info(l.Time, "event", l.Msg)
+				}
 				locked = !l.Open
 			}
 		}
