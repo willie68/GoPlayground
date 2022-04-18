@@ -69,7 +69,7 @@ func main() {
 }
 
 func info(t time.Time, level, msg string) {
-	line := fmt.Sprintf("%04d %s: %s: %s\r\n", count, t.Format(logFormat), level, msg)
+	line := fmt.Sprintf(`%04d,"%s","%s","%s"%s`, count, t.Format(logFormat), level, msg, "\r\n")
 	fmt.Print(line)
 	f.WriteString(line)
 }
