@@ -37,25 +37,15 @@ func write() {
 		log.Fatalf("error opening writer: %v", err)
 	}
 	defer writer.Close()
-	count := 0
 	// index some data
-	batch := bluge.NewBatch()
-	for x := 0; x < 100; x++ {
-		fmt.Printf(".")
-		for i := 0; i < 1000; i++ {
-			doc := bluge.NewDocument(fmt.Sprintf("ex%.8d", count)).
-				AddField(bluge.NewTextField("From", "marty.schoch@gmail.com").StoreValue()).
-				AddField(bluge.NewTextField("Body", fmt.Sprintf("bleve indexing is easy %d", count)).StoreValue()).
-				AddField(bluge.NewTextField("Message", randSeq(128)).StoreValue())
+	doc := bluge.NewDocument("12345678").
+		AddField(bluge.NewTextField("From", "marty.schoch@gmail.com").StoreValue()).
+		AddField(bluge.NewTextField("Body", "BLuge indexing is easy").StoreValue()).
+		AddField(bluge.NewTextField("Message", randSeq(128)).StoreValue())
 
-			batch.Update(doc.ID(), doc)
-			count++
-		}
-		err := writer.Batch(batch)
-		batch.Reset()
-		if err != nil {
-			log.Fatalf("error updating document: %v", err)
-		}
+	err = writer.Update(doc.ID(), doc)
+	if err != nil {
+		log.Fatalf("error updating index: %v", err)
 	}
 	fmt.Println()
 }
@@ -68,7 +58,7 @@ func search() {
 	}
 	defer reader.Close()
 
-	query := bluge.NewMatchQuery("bleve").SetField("Body")
+	query := bluge.NewMatchQuery("bluge").SetField("Body")
 	request := bluge.NewTopNSearch(200000, query).
 		WithStandardAggregations()
 	documentMatchIterator, err := reader.Search(context.Background(), request)
